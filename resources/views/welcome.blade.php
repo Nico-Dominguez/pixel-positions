@@ -28,6 +28,11 @@
 
         <section>
           <x-section-heading>Recent Jobs</x-section-heading>
+          <div class="mt-6 grid gap-8">
+            <x-job-card-wide></x-job-card-wide>
+            <x-job-card-wide></x-job-card-wide>
+            <x-job-card-wide></x-job-card-wide>
+          </div>
         </section>
     </div>
 

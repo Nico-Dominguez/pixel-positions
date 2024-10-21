@@ -11,10 +11,13 @@ export default {
     theme: {
         extend: {
             fontFamily: {
-                sans: ["Figtree", ...defaultTheme.fontFamily.sans],
+                sans: ["Hanken Grotesk", ...defaultTheme.fontFamily.sans],
             },
             colors: {
                 black: "#060606",
+            },
+            fontSize: {
+                "2xs": "0.625rem",
             },
         },
     },
