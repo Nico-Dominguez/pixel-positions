@@ -1,13 +1,11 @@
+{{-- tag.blade.php --}}
 @props(['tag', 'size' => 'base' ])
 
-@php
-    $classes = "bg-white/10 hover:bg-white/25 rounded-xl font-bold transition-colors duration-300";
-    if ($size === 'base') {
-        $classes .= " px-5 py-1 text-sm";
-    }
-    if ($size === 'small') {
-        $classes .= " px-3 py-1 text-2xs";
-    }
-@endphp
-
-<a href="/tags/{{ strtolower($tag->name) }}" class="{{ $classes }}">{{ $tag->name }}</a>
+<div class="debug-info" style="color: red;">
+    Raw attributes: {{ print_r($attributes->all(), true) }}<br>
+    Tag variable exists: {{ isset($tag) ? 'yes' : 'no' }}<br>
+    @if(isset($tag))
+        Tag type: {{ gettype($tag) }}<br>
+        Tag content: {{ print_r($tag, true) }}
+    @endif
+</div>

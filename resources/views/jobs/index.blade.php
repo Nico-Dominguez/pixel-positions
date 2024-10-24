@@ -22,9 +22,21 @@
         <section>
           <x-section-heading>Tags</x-section-heading>
           <div class="mt-6 space-x-1">
-              @foreach ($tags as $tag)
-                  <x-tag :tag="$tag" />
-              @endforeach
+              @if($tags->isEmpty())
+                  <p>No tags found</p>
+              @else
+                  @foreach ($tags as $tag)
+                      {{-- Debug the tag inside the loop --}}
+                      @php
+                          error_log(print_r($tag->toArray(), true));
+                      @endphp
+                      
+                      {{-- Try different ways of passing the tag --}}
+                      <!-- <x-tag tag="{{ $tag }}" /> -->
+                      {{-- or --}}
+                     <x-tag :tag="$tag" />
+                  @endforeach
+              @endif
           </div>
         </section>
 

@@ -15,10 +15,17 @@ class JobController extends Controller
     public function index()
     {
         $tags = Tag::all();
-        // dd($tags); // Debug to check if tags are being fetched correctly
-
+        $jobs = Job::all();
+        
+        // Temporary debug
+        // dd($tags->count(), $tags->first()); 
+        // dd([
+        //     'tags_count' => $tags->count(),
+        //     'first_tag' => $tags->first()
+        // ]);
+        
         return view('jobs.index', [
-            'jobs' => Job::all(),
+            'jobs' => $jobs,
             'tags' => $tags,
         ]);
     }
