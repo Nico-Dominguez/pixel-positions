@@ -10,6 +10,8 @@ class Job extends Model
 {
     use HasFactory;
 
+    protected $table = 'job_listings';
+
     public function employer()
     {
         return $this->belongsTo(Employer::class);
@@ -17,7 +19,7 @@ class Job extends Model
 
     public function tags()
     {
-        return $this->belongsToMany(Tag::class);
+        return $this->belongsToMany(Tag::class, 'job_tag');
     }
 
     public function tag(string $name)

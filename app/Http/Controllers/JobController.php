@@ -15,14 +15,7 @@ class JobController extends Controller
     public function index()
     {
         $tags = Tag::all();
-        $jobs = Job::all();
-        
-        // Temporary debug
-        // dd($tags->count(), $tags->first()); 
-        // dd([
-        //     'tags_count' => $tags->count(),
-        //     'first_tag' => $tags->first()
-        // ]);
+        $jobs = Job::with('tags')->get();
         
         return view('jobs.index', [
             'jobs' => $jobs,
