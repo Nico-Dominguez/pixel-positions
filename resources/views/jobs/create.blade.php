@@ -1,6 +1,6 @@
 <x-layout>
  <x-page-heading>New Job</x-page-heading>
- <x-form.form method="POST" action="'/jobs">
+ <x-form.form method="POST" action="/jobs">
     <x-form.input label="Title" name="title" placeholder="CEO" />
     <x-form.input label="Salary" name="salary" placeholder="$90,000 USD" />
     <x-form.input label="Location" name="location" placeholder="Winter Park, Florida" />

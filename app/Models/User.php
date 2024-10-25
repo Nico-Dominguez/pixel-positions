@@ -50,3 +50,6 @@ class User extends Authenticatable
         return $this->hasOne(Employer::class);
     }
 }
+
+
+// First create the employer record for user 1

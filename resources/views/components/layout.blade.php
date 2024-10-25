@@ -26,8 +26,13 @@
             </div>
 
             @auth
-                <div>
+                <div class="flex space-x-4">
                     <a href="/jobs/create">Post a Job</a>
+                    <form method="POST" action="/logout" class="inline">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="hover:text-gray-400">Log Out</button>
+                    </form>
                 </div>
             @endauth
 
