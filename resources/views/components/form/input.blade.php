@@ -10,7 +10,7 @@
     ];
 @endphp
 
-<x-forms.field :$label :$name>
+<x-form.field :$label :$name>
     <input {{ $attributes($defaults) }}>
-</x-forms.field>
+</x-form.field>
 

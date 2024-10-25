@@ -8,9 +8,9 @@
     ];
 @endphp
 
-<x-forms.field :$label :$name>
+<x-form.field :$label :$name>
     <select {{ $attributes($defaults) }}>
         {{ $slot }}
     </select>
-</x-forms.field>
+</x-form.field>
 

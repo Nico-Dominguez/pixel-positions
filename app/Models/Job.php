@@ -4,33 +4,29 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Tag;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Job extends Model
 {
     use HasFactory;
 
-    protected $table = 'job_listings';
+    protected $table = 'job_listings';  // Add this line to specify the correct table name
 
-    public function employer()
+    public function tag(string $name): void
+    {
+        $tag = Tag::firstOrCreate(['name' => strtolower($name)]);
+
+        $this->tags()->attach($tag);
+    }
+
+    public function tags(): BelongsToMany
+    {
+        return $this->belongsToMany(Tag::class);
+    }
+
+    public function employer(): BelongsTo
     {
         return $this->belongsTo(Employer::class);
     }
-
-    public function tags()
-    {
-        return $this->belongsToMany(Tag::class, 'job_tag');
-    }
-
-    public function tag(string $name)
-{
-    try {
-        $tag = Tag::firstOrCreate(['name' => $name]);
-        $this->tags()->attach($tag);
-        return $this;  // Add this for method chaining
-    } catch (\Exception $e) {
-        // Handle error or rethrow
-        throw $e;
-    }
-}
 }
