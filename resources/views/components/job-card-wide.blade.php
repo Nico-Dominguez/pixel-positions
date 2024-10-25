@@ -5,7 +5,7 @@
              transition-all duration-300">
     
     <div class="shrink-0">
-        <x-employer-logo class="rounded-lg shadow-md" />
+        <x-employer-logo class="rounded-full" :employer="$job->employer" />
     </div>
 
     <div class="flex-1 min-w-0"> <!-- min-w-0 prevents flex item from overflowing -->
@@ -17,7 +17,7 @@
             
             <h3 class="font-bold text-xl">
                 <a href="{{ $job->url }}" 
-                   class="group-hover:text-blue-400 transition-colors line-clamp-1">
+                   class="group-hover:text-blue-400 transition-colors line-clamp-1" target="_blank">
                     {{ $job->title }}
                 </a>
             </h3>

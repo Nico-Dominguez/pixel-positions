@@ -3,13 +3,13 @@
 <x-panel class="flex flex-col p-6 hover:shadow-lg transition-shadow duration-300">
     <header class="flex items-center justify-between mb-4">
         <span class="text-sm font-medium text-gray-400">{{ $job->employer->name }}</span>
-        <x-employer-logo :width="42" class="rounded-full" />
+        <x-employer-logo :width="42" class="rounded-full" :employer="$job->employer" />
     </header>
 
     <div class="flex-grow space-y-4">
         <h3 class="text-xl font-bold">
             <a href="{{ $job->url }}" 
-               class="hover:text-blue-500 transition-colors duration-300">
+               class="hover:text-blue-500 transition-colors duration-300" target="_blank">
                 {{ $job->title }}
             </a>
         </h3>
